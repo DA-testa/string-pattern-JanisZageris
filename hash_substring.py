@@ -1,7 +1,18 @@
 # python3
 
+import re
+
 def read_input():
-    return (input().rstrip(), input().rstrip())
+    input_type = input().rstrip()
+    if input_type == 'I':
+        pattern = input().rstrip()
+        text = input().rstrip()
+    elif input_type == 'F':
+        filename = input().rstrip()
+        with open(f'tests/{filename}.txt', 'r') as f:
+            pattern = f.readline().rstrip()
+            text = f.readline().rstrip()
+    return pattern, text
 
 def print_occurrences(output):
     # outputs
