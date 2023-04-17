@@ -1,7 +1,5 @@
 # python3
 
-import re
-
 def read_input():
     input_type = input().rstrip()
     if input_type == 'I':
@@ -9,9 +7,9 @@ def read_input():
         text = input().rstrip()
     elif input_type == 'F':
         filename = input().rstrip()
-        with open(f'tests/{filename}.txt', 'r') as f:
-            pattern = f.readline().rstrip()
-            text = f.readline().rstrip()
+        with open(f'tests/{filename}.txt', 'r') as file:
+            pattern = file.readline().rstrip()
+            text = file.readline().rstrip()
     return pattern, text
 
 def print_occurrences(output):
