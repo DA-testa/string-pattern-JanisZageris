@@ -7,7 +7,7 @@ def read_input():
         text = input().rstrip()
     elif input_type == 'F':
         filename = "06"
-        with open(f'tests/{filename}.txt', 'r') as file:
+        with open(f'tests/{filename}', 'r') as file:
             pattern = file.readline().rstrip()
             text = file.readline().rstrip()
     return pattern, text
