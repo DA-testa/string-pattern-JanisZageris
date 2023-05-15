@@ -12,15 +12,12 @@ def read_input():
             text = file.readline().rstrip()
     return pattern, text
 
-def print_occurrences(output):
-    # outputs
+def print_occurrences(output):                          # outputs
     print(' '.join(map(str, output)))
 
-def get_occurrences(pattern, text):
-    # funkcija atrod sakarības tekstā izmantojot Rabin-Karp algoritmu un atdod sarakstu ar pozīcijām kur modelis sākās tekstā
-    
-    p = 1000000007  # pirmskaitlis (prime number)
-    x = 263         # inteģers
+def get_occurrences(pattern, text):                     # funkcija atrod sakarības tekstā izmantojot Rabin-Karp algoritmu un atdod sarakstu ar pozīcijām kur modelis sākās tekstā
+    p = 1000000007                                      # pirmskaitlis (prime number)
+    x = 263                                             # inteģers
     result = []
     p_hash = compute_hash(pattern, p, x)
     hashes = precompute_hashes(text, len(pattern), p, x)
@@ -33,15 +30,13 @@ def get_occurrences(pattern, text):
             
     return result
 
-def compute_hash(s, p, x):
-    # aprēķina string hash vērtību izmantojot pirmskaitli un inteģeri
+def compute_hash(s, p, x):                              # aprēķina string hash vērtību izmantojot pirmskaitli un inteģeri
     h = 0
     for c in reversed(s):
         h = (h * x + ord(c)) % p
     return h
 
-def precompute_hashes(text, pattern_length, p, x):
-    # aprēķina visas hash vērtības
+def precompute_hashes(text, pattern_length, p, x):      # aprēķina visas hash vērtības
     t = len(text) - pattern_length
     hashes = [0] * (t + 1)
     last_substring = text[-pattern_length:]
